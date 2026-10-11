@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.8s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-zinc-950 text-zinc-100 font-sans antialiased; }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent;
+}
